@@ -87,6 +87,9 @@ public class ThirdPersonCamera : MonoBehaviour
         // 부드럽게 이동
         currentPosition = Vector3.SmoothDamp(currentPosition, targetPosition, ref currentVelocity, positionSmoothTime);
 
+        // 부드럽게 회전
+        currentRotation = Quaternion.Slerp(currentRotation, targetRotation, Time.deltaTime / rotationSmoothTime);
+
         // 값 적용
         transform.position = currentPosition;
         transform.rotation = currentRotation;
