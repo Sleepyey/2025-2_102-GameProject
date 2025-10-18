@@ -60,7 +60,7 @@ public class InteractableObject : MonoBehaviour
 
     protected virtual void RemoveHighlight()                    // 가상 함수로 하이라이트 제거 구현
     {
-        if (objectRenderer != null && !isHighlighted)
+        if (objectRenderer != null && isHighlighted)
         {
             objectRenderer.material.color = originalColor;
             objectRenderer.material.SetFloat("_Emission", 0f);

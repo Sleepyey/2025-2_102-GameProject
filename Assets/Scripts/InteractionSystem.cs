@@ -15,7 +15,7 @@ public class InteractionSystem : MonoBehaviour
     public GameObject interactionUI;                        // 상호 작용 UI 텍스트 객체
 
     private Transform playerTransform;
-    private InteractableObject currentInteractiable;        // 감지된 오브젝트를 담는 클래스
+    private InteractableObject currentInteractable;        // 감지된 오브젝트를 담는 클래스
 
     // Start
     void Start()
@@ -33,9 +33,9 @@ public class InteractionSystem : MonoBehaviour
 
     void HandleInteractionInput()                                                   // 인터랙션 입력 함수
     {
-        if (currentInteractiable != null && Input.GetKeyDown(interactionKey))       // 인터랙션 키 값을 눌렀을 때
+        if (currentInteractable != null && Input.GetKeyDown(interactionKey))       // 인터랙션 키 값을 눌렀을 때
         {
-            currentInteractiable.Interact();                                        // 행동을 한다
+            currentInteractable.Interact();                                        // 행동을 한다
         }
     }
 
@@ -88,19 +88,19 @@ public class InteractionSystem : MonoBehaviour
         }
 
         // 상호 작용 오브젝트 변경 체크
-        if (closestInteractable != currentInteractiable)
+        if (closestInteractable != currentInteractable)
         {
-            if (currentInteractiable != null)
+            if (currentInteractable != null)
             {
-                currentInteractiable.OnPlayerExit();                            // 이전 오브젝트에서 나감
+                currentInteractable.OnPlayerExit();                            // 이전 오브젝트에서 나감
             }
 
-            currentInteractiable = closestInteractable;
+            currentInteractable = closestInteractable;
 
-            if (currentInteractiable != null)
+            if (currentInteractable != null)
             {
-                currentInteractiable.OnPlayerEnter();                           // 새 오브젝트 선택
-                ShowInteractionUI(currentInteractiable.GetInteractionText());
+                currentInteractable.OnPlayerEnter();                           // 새 오브젝트 선택
+                ShowInteractionUI(currentInteractable.GetInteractionText());
             }
             else
             {
